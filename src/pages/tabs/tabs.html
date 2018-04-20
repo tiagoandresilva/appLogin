@@ -1,0 +1,29 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <button ion-item (click)="openPage(HomePage)">
+       <ion-col><ion-icon name="person"></ion-icon></ion-col> Manager
+      </button>
+      <button ion-item (click)="openPage(friendsPage)">
+        <ion-col><ion-icon name="pin"></ion-icon></ion-col> Agenda
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        <ion-col><ion-icon name="calculator"></ion-icon></ion-col> Dashboard
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+<ion-tabs>
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+</ion-tabs>
