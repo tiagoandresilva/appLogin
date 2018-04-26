@@ -1,13 +1,45 @@
 <ion-header>
-<ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <img ion-right src="assets/imgs/logo.png" class="navbarLogo" />
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    Bem Vindo ao Websolutions {{userDetails.usuario_nome}}.
+<ion-content>
+  <ion-list>
+    <ion-list-header>Produção do dia:</ion-list-header>
+    <ion-item>
+      <ion-icon name="add-circle" item-left></ion-icon>
+      OS Aberta: {{aberta_dia}}
+    </ion-item>
+     <ion-item>
+      <ion-icon name="build" item-left></ion-icon>
+       OS Reparada: {{reparada_dia}}
+    </ion-item>
+     <ion-item>
+      <ion-icon name="checkmark-circle" item-left></ion-icon>
+        OS Finalizada: {{finalizada_dia}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>Produção do Mês:</ion-list-header>
+    <ion-item>
+      <ion-icon name="add-circle" item-left></ion-icon>
+      OS Aberta: {{aberta_mes}}
+    </ion-item>
+     <ion-item>
+      <ion-icon name="build" item-left></ion-icon>
+       OS Reparada: {{reparada_mes}}
+    </ion-item>
+     <ion-item>
+      <ion-icon name="checkmark-circle" item-left></ion-icon>
+        OS Finalizada: {{finalizada_mes}}
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="getHome()" color="primary">Atualizar</button>
 </ion-content>
+

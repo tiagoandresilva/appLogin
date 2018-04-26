@@ -1,3 +1,4 @@
+import { UsersProvider } from './../../providers/users/users';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -9,16 +10,36 @@ export class HomePage {
 
   public userDetails: any;
   public resposeData: any;
+  public aberta_mes: any;
+  public reparada_mes: any;
+  public finalizada_mes: any;
+
+  public aberta_dia: any;
+  public reparada_dia: any;
+  public finalizada_dia: any;
 
   constructor(
-    public navCtrl: NavController
+    public navCtrl: NavController,private userProvider: UsersProvider
   ) {
-    //const data = JSON.parse(localStorage.getItem("userData"));
-    //this.userDetails = data.userData;
     this.userDetails = JSON.parse(localStorage.getItem("userData"));
+    this.getHome();
   }
 
-  //constructor(public navCtrl: NavController) { }
+  getHome() {
+
+      this.userProvider.getHome()
+        .then((result: any) => {
+          this.aberta_mes = result.os_aberta_mes;
+          this.reparada_mes = result.os_reparada_mes;
+          this.finalizada_mes = result.os_coletada_mes;
+
+          this.aberta_dia = result.os_aberta_dia;
+          this.reparada_dia = result.os_reparada_dia;
+          this.finalizada_dia = result.os_coletada_dia;
+        })
+        .catch((error: any) => {
+        });
+  }
 
   openCreateAccount() {
     this.navCtrl.push('CreateAccountPage');

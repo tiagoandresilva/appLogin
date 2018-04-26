@@ -43,6 +43,22 @@ export class UsersProvider {
     });
   }
 
+  getHome() {
+    return new Promise((resolve, reject) => {
+      var data = {
+        acao: 'home'
+      };
+
+      this.http.post('http://devcare-br.com/websolution/os_app_care.php', data)
+        .subscribe((result: any) => {
+          resolve(result.json());
+        },
+        (error) => {
+          reject(error.json());
+        });
+    });
+  }
+
   getAll(page: number) {
     return new Promise((resolve, reject) => {
 
